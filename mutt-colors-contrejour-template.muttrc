@@ -1,0 +1,117 @@
+# mutt-solarized: actually make solarized work for mutt
+#
+# These depend on mutt compiled with slang, not ncurses. Check by running `mutt -v`
+# Details this configuration may be found in the mutt manual:
+# §4.2 Patterns <http://www.mutt.org/doc/manual/manual-4.html#ss4.2>
+# §3.7 Using color and mono video attributes <http://www.mutt.org/doc/manual/manual-3.html#ss3.7>
+#
+
+## Base
+color normal      {{base00}}  {{default}} # softer, bold
+
+## Weak
+color tilde       {{base01}}  {{default}}  # `~` padding at the end of pager
+color attachment  {{base01}}  {{default}}
+color tree        {{base01}}  {{default}}  # arrow in threads
+color signature   {{base01}}  {{default}}
+color markers     {{base01}}  {{default}}  # `+` wrap indicator in pager
+
+## Strong
+color bold        {{base1}}   {{default}}
+color underline   {{base1}}   {{default}}
+
+## Highlight
+color error       {{red}}     {{default}}
+color message     {{blue}}    {{default}}  # informational messages
+color search      {{base02}}  {{yellow}}
+color status      {{base00}}  {{base02}}   # softer, bold
+color indicator   {{base02}}  {{yellow}}   # inverse, brighter, non-bold
+
+
+# Message Index ----------------------------------------------------------------
+
+## Weak
+color index  {{base01}}  {{default}}  "~R"        # read messages
+color index  {{base01}}  {{default}}  "~d >45d"   # older than 45 days
+color index  {{base01}}  {{default}}  "~v~(!~N)"  # collapsed thread with no unread
+color index  {{base01}}  {{default}}  "~Q"        # messages that have been replied to
+
+## Strong
+color index  {{base1}}   {{default}}  "(~U|~N|~O)"     # unread, new, old messages
+color index  {{base1}}   {{default}}  "~v~(~U|~N|~O)"  # collapsed thread with unread
+
+## Highlight
+### Trusted
+color index  {{cyan}}     {{default}}  "~g"  # PGP signed messages
+color index  {{cyan}}     {{default}}  "~G"  # PGP encrypted messages
+color index  {{cyan}}     {{default}}  "~b \"{{name_re}}\" !~p !~P" # messages which mention my name in the body
+color index  {{cyan}}     {{default}}  "~x \"{{mail_re}}\" !~p !~P" # messages which are in reference to my mails
+### Odd
+color index  {{yellow}}  {{default}}  "~E"  # past Expires: header date
+color index  {{yellow}}  {{default}}  "~="  # duplicated
+color index  {{yellow}}  {{default}}  "~S"  # marked by Supersedes: header
+### Flagged
+color index  {{red}}     {{default}}  "~F"       # flagged messages
+color index  {{red}}     {{default}}  "~v~(~F)"  # collapsed thread with flagged inside
+
+# Selection
+color index  {{base2}}   {{blue}}  "~T"  # tagged messages
+color index  {{base02}}  {{red}}   "~D"  # deleted messages
+
+### Message Headers ----------------------------------------------------
+
+# Base
+color hdrdefault  {{base01}}  {{default}}
+color header      {{base01}}  {{default}}  "^"
+# Strong
+color header      {{base0}}   {{default}}  "^(From)"
+# Highlight
+color header      {{blue}}    {{default}}  "^(Subject)"
+
+### Message Body -------------------------------------------------------
+# When possible, these regular expressions attempt to match http://spec.commonmark.org/
+## Weak
+# ~~~ Horizontal rules ~~~
+color body  {{base01}}  {{default}}  "([[:space:]]*[-+=#*~_]){3,}[[:space:]]*"
+## Strong
+# *Bold* span
+color body  {{base1}}   {{default}}  "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
+# _Underline_ span
+color body  {{base1}}   {{default}}  "(^|[[:space:][:punct:]])_[^_]+_([[:space:][:punct:]]|$)"
+# /Italic/ span (Sometimes gets directory names)
+color body  {{base1}}   {{default}}  "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
+# ATX headers
+color body  {{base1}}   {{default}}  "^[[:space:]]{0,3}#+[[:space:]].*$"
+## Highlight
+# `Code` span
+color body  {{red}}     {{default}}  "(^|[[:space:][:punct:]])\`[^\`]+\`([[:space:][:punct:]]|$)"
+# Indented code block
+color body  {{red}}     {{default}}  "^[[:space:]]{4,}.*$"
+# Emoticons ;-P
+color body  {{black}}   {{yellow}}   "[;:][-o]?[})>{(<|P]"
+# URLs
+color body  {{green}}   {{default}}  "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+# Email addresses
+color body  {{cyan}}   {{default}}  "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
+
+# PGP
+color body  {{base02}}  {{red}}      "(BAD signature)"
+color body  {{base02}}  {{red}}      "^gpg: BAD signature from.*"
+color body  {{base02}}  {{blue}}     "(Good signature)"
+color body  {{base02}}  {{blue}}     "^gpg: Good signature .*"
+color body  {{blue}}    {{default}}  "^gpg: "
+
+# highlight my name and other personally relevant strings
+color body  {{yellow}}  {{default}}  "{{name_re}}"
+
+## Quotation blocks
+color quoted   {{blue}}     {{default}}
+color quoted1  {{cyan}}     {{default}}
+color quoted2  {{green}}    {{default}}
+color quoted3  {{yellow}}   {{default}}
+color quoted4  {{orange}}   {{default}}
+color quoted5  {{red}}      {{default}}
+color quoted6  {{magenta}}  {{default}}
+color quoted7  {{violet}}   {{default}}
+
+# vi: ft=muttrc

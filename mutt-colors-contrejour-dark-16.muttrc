@@ -1,0 +1,117 @@
+# mutt-solarized: actually make solarized work for mutt
+#
+# These depend on mutt compiled with slang, not ncurses. Check by running `mutt -v`
+# Details this configuration may be found in the mutt manual:
+# §4.2 Patterns <http://www.mutt.org/doc/manual/manual-4.html#ss4.2>
+# §3.7 Using color and mono video attributes <http://www.mutt.org/doc/manual/manual-3.html#ss3.7>
+#
+
+## Base
+color normal      brightyellow  default # softer, bold
+
+## Weak
+color tilde       brightgreen  default  # `~` padding at the end of pager
+color attachment  brightgreen  default
+color tree        brightgreen  default  # arrow in threads
+color signature   brightgreen  default
+color markers     brightgreen  default  # `+` wrap indicator in pager
+
+## Strong
+color bold        brightcyan   default
+color underline   brightcyan   default
+
+## Highlight
+color error       red     default
+color message     blue    default  # informational messages
+color search      black  yellow
+color status      brightyellow  black   # softer, bold
+color indicator   black  yellow   # inverse, brighter, non-bold
+
+
+# Message Index ----------------------------------------------------------------
+
+## Weak
+color index  brightgreen  default  "~R"        # read messages
+color index  brightgreen  default  "~d >45d"   # older than 45 days
+color index  brightgreen  default  "~v~(!~N)"  # collapsed thread with no unread
+color index  brightgreen  default  "~Q"        # messages that have been replied to
+
+## Strong
+color index  brightcyan   default  "(~U|~N|~O)"     # unread, new, old messages
+color index  brightcyan   default  "~v~(~U|~N|~O)"  # collapsed thread with unread
+
+## Highlight
+### Trusted
+color index  cyan     default  "~g"  # PGP signed messages
+color index  cyan     default  "~G"  # PGP encrypted messages
+color index  cyan     default  "~b \"(joseph|holsten|jholsten|josephholsten|joseph anthony pasquale holsten)\" !~p !~P" # messages which mention my name in the body
+color index  cyan     default  "~x \"josephholsten.com\" !~p !~P" # messages which are in reference to my mails
+### Odd
+color index  yellow  default  "~E"  # past Expires: header date
+color index  yellow  default  "~="  # duplicated
+color index  yellow  default  "~S"  # marked by Supersedes: header
+### Flagged
+color index  red     default  "~F"       # flagged messages
+color index  red     default  "~v~(~F)"  # collapsed thread with flagged inside
+
+# Selection
+color index  white   blue  "~T"  # tagged messages
+color index  black  red   "~D"  # deleted messages
+
+### Message Headers ----------------------------------------------------
+
+# Base
+color hdrdefault  brightgreen  default
+color header      brightgreen  default  "^"
+# Strong
+color header      brightblue   default  "^(From)"
+# Highlight
+color header      blue    default  "^(Subject)"
+
+### Message Body -------------------------------------------------------
+# When possible, these regular expressions attempt to match http://spec.commonmark.org/
+## Weak
+# ~~~ Horizontal rules ~~~
+color body  brightgreen  default  "([[:space:]]*[-+=#*~_]){3,}[[:space:]]*"
+## Strong
+# *Bold* span
+color body  brightcyan   default  "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
+# _Underline_ span
+color body  brightcyan   default  "(^|[[:space:][:punct:]])_[^_]+_([[:space:][:punct:]]|$)"
+# /Italic/ span (Sometimes gets directory names)
+color body  brightcyan   default  "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
+# ATX headers
+color body  brightcyan   default  "^[[:space:]]{0,3}#+[[:space:]].*$"
+## Highlight
+# `Code` span
+color body  red     default  "(^|[[:space:][:punct:]])\`[^\`]+\`([[:space:][:punct:]]|$)"
+# Indented code block
+color body  red     default  "^[[:space:]]{4,}.*$"
+# Emoticons ;-P
+color body  black   yellow   "[;:][-o]?[})>{(<|P]"
+# URLs
+color body  green   default  "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+# Email addresses
+color body  cyan   default  "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
+
+# PGP
+color body  black  red      "(BAD signature)"
+color body  black  red      "^gpg: BAD signature from.*"
+color body  black  blue     "(Good signature)"
+color body  black  blue     "^gpg: Good signature .*"
+color body  blue    default  "^gpg: "
+
+# highlight my name and other personally relevant strings
+color body  yellow  default  "(joseph|holsten|jholsten|josephholsten|joseph anthony pasquale holsten)"
+
+## Quotation blocks
+color quoted   blue     default
+color quoted1  cyan     default
+color quoted2  green    default
+color quoted3  yellow   default
+color quoted4  brightred   default
+color quoted5  red      default
+color quoted6  magenta  default
+color quoted7  brightmagenta   default
+
+# vi: ft=muttrc
