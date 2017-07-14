@@ -7,111 +7,111 @@
 #
 
 ## Base
-color normal      {{base00}}  {{default}} # softer, bold
+color normal      {{base04}}  {{default}} # softer, bold
 
 ## Weak
-color tilde       {{base01}}  {{default}}  # `~` padding at the end of pager
-color attachment  {{base01}}  {{default}}
-color tree        {{base01}}  {{default}}  # arrow in threads
-color signature   {{base01}}  {{default}}
-color markers     {{base01}}  {{default}}  # `+` wrap indicator in pager
+color tilde       {{base05}}  {{default}}  # `~` padding at the end of pager
+color attachment  {{base05}}  {{default}}
+color tree        {{base05}}  {{default}}  # arrow in threads
+color signature   {{base05}}  {{default}}
+color markers     {{base05}}  {{default}}  # `+` wrap indicator in pager
 
 ## Strong
-color bold        {{base1}}   {{default}}
-color underline   {{base1}}   {{default}}
+color bold        {{base02}}  {{default}}
+color underline   {{base02}}  {{default}}
 
 ## Highlight
-color error       {{red}}     {{default}}
-color message     {{blue}}    {{default}}  # informational messages
-color search      {{base02}}  {{yellow}}
-color status      {{base00}}  {{base02}}   # softer, bold
-color indicator   {{base02}}  {{yellow}}   # inverse, brighter, non-bold
+color error       {{base08}}  {{default}}
+color message     {{base0d}}  {{default}}  # informational messages
+color search      {{base06}}  {{base0a}}
+color status      {{base04}}  {{base06}}   # softer, bold
+color indicator   {{base06}}  {{base0a}}   # inverse, brighter, non-bold
 
 
 # Message Index ----------------------------------------------------------------
 
 ## Weak
-color index  {{base01}}  {{default}}  "~R"        # read messages
-color index  {{base01}}  {{default}}  "~d >45d"   # older than 45 days
-color index  {{base01}}  {{default}}  "~v~(!~N)"  # collapsed thread with no unread
-color index  {{base01}}  {{default}}  "~Q"        # messages that have been replied to
+color index  {{base05}}  {{default}}  "~R"        # read messages
+color index  {{base05}}  {{default}}  "~d >45d"   # older than 45 days
+color index  {{base05}}  {{default}}  "~v~(!~N)"  # collapsed thread with no unread
+color index  {{base05}}  {{default}}  "~Q"        # messages that have been replied to
 
 ## Strong
-color index  {{base1}}   {{default}}  "(~U|~N|~O)"     # unread, new, old messages
-color index  {{base1}}   {{default}}  "~v~(~U|~N|~O)"  # collapsed thread with unread
+color index  {{base02}}  {{default}}  "(~U|~N|~O)"     # unread, new, old messages
+color index  {{base02}}  {{default}}  "~v~(~U|~N|~O)"  # collapsed thread with unread
 
 ## Highlight
 ### Trusted
-color index  {{cyan}}     {{default}}  "~g"  # PGP signed messages
-color index  {{cyan}}     {{default}}  "~G"  # PGP encrypted messages
-color index  {{cyan}}     {{default}}  "~b \"{{name_re}}\" !~p !~P" # messages which mention my name in the body
-color index  {{cyan}}     {{default}}  "~x \"{{mail_re}}\" !~p !~P" # messages which are in reference to my mails
+color index  {{base0c}}  {{default}}  "~g"  # PGP signed messages
+color index  {{base0c}}  {{default}}  "~G"  # PGP encrypted messages
+color index  {{base0c}}  {{default}}  "~b \"{{name_re}}\" !~p !~P" # messages which mention my name in the body
+color index  {{base0c}}  {{default}}  "~x \"{{mail_re}}\" !~p !~P" # messages which are in reference to my mails
 ### Odd
-color index  {{yellow}}  {{default}}  "~E"  # past Expires: header date
-color index  {{yellow}}  {{default}}  "~="  # duplicated
-color index  {{yellow}}  {{default}}  "~S"  # marked by Supersedes: header
+color index  {{base0a}}  {{default}}  "~E"  # past Expires: header date
+color index  {{base0a}}  {{default}}  "~="  # duplicated
+color index  {{base0a}}  {{default}}  "~S"  # marked by Supersedes: header
 ### Flagged
-color index  {{red}}     {{default}}  "~F"       # flagged messages
-color index  {{red}}     {{default}}  "~v~(~F)"  # collapsed thread with flagged inside
+color index  {{base08}}  {{default}}  "~F"       # flagged messages
+color index  {{base08}}  {{default}}  "~v~(~F)"  # collapsed thread with flagged inside
 
 # Selection
-color index  {{base2}}   {{blue}}  "~T"  # tagged messages
-color index  {{base02}}  {{red}}   "~D"  # deleted messages
+color index  {{base01}}  {{base0d}}   "~T"  # tagged messages
+color index  {{base06}}  {{base08}}   "~D"  # deleted messages
 
 ### Message Headers ----------------------------------------------------
 
 # Base
-color hdrdefault  {{base01}}  {{default}}
-color header      {{base01}}  {{default}}  "^"
+color hdrdefault  {{base05}}  {{default}}
+color header      {{base05}}  {{default}}  "^"
 # Strong
-color header      {{base0}}   {{default}}  "^(From)"
+color header      {{base03}}  {{default}}  "^(From)"
 # Highlight
-color header      {{blue}}    {{default}}  "^(Subject)"
+color header      {{base0d}}  {{default}}  "^(Subject)"
 
 ### Message Body -------------------------------------------------------
 # When possible, these regular expressions attempt to match http://spec.commonmark.org/
 ## Weak
 # ~~~ Horizontal rules ~~~
-color body  {{base01}}  {{default}}  "([[:space:]]*[-+=#*~_]){3,}[[:space:]]*"
+color body  {{base05}}  {{default}}  "([[:space:]]*[-+=#*~_]){3,}[[:space:]]*"
 ## Strong
 # *Bold* span
-color body  {{base1}}   {{default}}  "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
+color body  {{base02}}  {{default}}  "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
 # _Underline_ span
-color body  {{base1}}   {{default}}  "(^|[[:space:][:punct:]])_[^_]+_([[:space:][:punct:]]|$)"
+color body  {{base02}}  {{default}}  "(^|[[:space:][:punct:]])_[^_]+_([[:space:][:punct:]]|$)"
 # /Italic/ span (Sometimes gets directory names)
-color body  {{base1}}   {{default}}  "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
+color body  {{base02}}  {{default}}  "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
 # ATX headers
-color body  {{base1}}   {{default}}  "^[[:space:]]{0,3}#+[[:space:]].*$"
+color body  {{base02}}  {{default}}  "^[[:space:]]{0,3}#+[[:space:]].*$"
 ## Highlight
 # `Code` span
-color body  {{red}}     {{default}}  "(^|[[:space:][:punct:]])\`[^\`]+\`([[:space:][:punct:]]|$)"
+color body  {{base08}}  {{default}}  "(^|[[:space:][:punct:]])\`[^\`]+\`([[:space:][:punct:]]|$)"
 # Indented code block
-color body  {{red}}     {{default}}  "^[[:space:]]{4,}.*$"
+color body  {{base08}}  {{default}}  "^[[:space:]]{4,}.*$"
 # Emoticons ;-P
-color body  {{black}}   {{yellow}}   "[;:][-o]?[})>{(<|P]"
+color body  {{black}}   {{base0a}}   "[;:][-o]?[})>{(<|P]"
 # URLs
-color body  {{green}}   {{default}}  "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+color body  {{base0b}} {{default}}  "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
 # Email addresses
-color body  {{cyan}}   {{default}}  "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
+color body  {{base0c}} {{default}}  "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
 
 # PGP
-color body  {{base02}}  {{red}}      "(BAD signature)"
-color body  {{base02}}  {{red}}      "^gpg: BAD signature from.*"
-color body  {{base02}}  {{blue}}     "(Good signature)"
-color body  {{base02}}  {{blue}}     "^gpg: Good signature .*"
-color body  {{blue}}    {{default}}  "^gpg: "
+color body  {{base06}}  {{base08}}   "(BAD signature)"
+color body  {{base06}}  {{base08}}   "^gpg: BAD signature from.*"
+color body  {{base06}}  {{base0d}}   "(Good signature)"
+color body  {{base06}}  {{base0d}}   "^gpg: Good signature .*"
+color body  {{base0d}}  {{default}}  "^gpg: "
 
 # highlight my name and other personally relevant strings
-color body  {{yellow}}  {{default}}  "{{name_re}}"
+color body  {{base0a}}  {{default}}  "{{name_re}}"
 
 ## Quotation blocks
-color quoted   {{blue}}     {{default}}
-color quoted1  {{cyan}}     {{default}}
-color quoted2  {{green}}    {{default}}
-color quoted3  {{yellow}}   {{default}}
-color quoted4  {{orange}}   {{default}}
-color quoted5  {{red}}      {{default}}
-color quoted6  {{magenta}}  {{default}}
-color quoted7  {{violet}}   {{default}}
+color quoted   {{base0d}}  {{default}}
+color quoted1  {{base0c}}  {{default}}
+color quoted2  {{base0b}}  {{default}}
+color quoted3  {{base0a}}  {{default}}
+color quoted4  {{base09}}  {{default}}
+color quoted5  {{base08}}  {{default}}
+color quoted6  {{base0f}}  {{default}}
+color quoted7  {{base0e}}  {{default}}
 
 # vi: ft=muttrc
