@@ -17,12 +17,12 @@ color signature   color245  default
 color markers     color245  default  # `+` wrap indicator in pager
 
 ## Strong
-color bold        color239   default
-color underline   color239   default
+color bold        color239  default
+color underline   color239  default
 
 ## Highlight
-color error       color124     default
-color message     color33    default  # informational messages
+color error       color124  default
+color message     color33  default  # informational messages
 color search      color187  color136
 color status      color244  color187   # softer, bold
 color indicator   color187  color136   # inverse, brighter, non-bold
@@ -37,25 +37,25 @@ color index  color245  default  "~v~(!~N)"  # collapsed thread with no unread
 color index  color245  default  "~Q"        # messages that have been replied to
 
 ## Strong
-color index  color239   default  "(~U|~N|~O)"     # unread, new, old messages
-color index  color239   default  "~v~(~U|~N|~O)"  # collapsed thread with unread
+color index  color239  default  "(~U|~N|~O)"     # unread, new, old messages
+color index  color239  default  "~v~(~U|~N|~O)"  # collapsed thread with unread
 
 ## Highlight
 ### Trusted
-color index  color37     default  "~g"  # PGP signed messages
-color index  color37     default  "~G"  # PGP encrypted messages
-color index  color37     default  "~b \"(joseph|holsten|jholsten|josephholsten|joseph anthony pasquale holsten)\" !~p !~P" # messages which mention my name in the body
-color index  color37     default  "~x \"josephholsten.com\" !~p !~P" # messages which are in reference to my mails
+color index  color37  default  "~g"  # PGP signed messages
+color index  color37  default  "~G"  # PGP encrypted messages
+color index  color37  default  "~b \"(joseph|holsten|jholsten|josephholsten|joseph anthony pasquale holsten)\" !~p !~P" # messages which mention my name in the body
+color index  color37  default  "~x \"josephholsten.com\" !~p !~P" # messages which are in reference to my mails
 ### Odd
 color index  color136  default  "~E"  # past Expires: header date
 color index  color136  default  "~="  # duplicated
 color index  color136  default  "~S"  # marked by Supersedes: header
 ### Flagged
-color index  color124     default  "~F"       # flagged messages
-color index  color124     default  "~v~(~F)"  # collapsed thread with flagged inside
+color index  color124  default  "~F"       # flagged messages
+color index  color124  default  "~v~(~F)"  # collapsed thread with flagged inside
 
 # Selection
-color index  color235   color33  "~T"  # tagged messages
+color index  color235  color33   "~T"  # tagged messages
 color index  color187  color124   "~D"  # deleted messages
 
 ### Message Headers ----------------------------------------------------
@@ -64,9 +64,9 @@ color index  color187  color124   "~D"  # deleted messages
 color hdrdefault  color245  default
 color header      color245  default  "^"
 # Strong
-color header      color240   default  "^(From)"
+color header      color240  default  "^(From)"
 # Highlight
-color header      color33    default  "^(Subject)"
+color header      color33  default  "^(Subject)"
 
 ### Message Body -------------------------------------------------------
 # When possible, these regular expressions attempt to match http://spec.commonmark.org/
@@ -75,43 +75,43 @@ color header      color33    default  "^(Subject)"
 color body  color245  default  "([[:space:]]*[-+=#*~_]){3,}[[:space:]]*"
 ## Strong
 # *Bold* span
-color body  color239   default  "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
+color body  color239  default  "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
 # _Underline_ span
-color body  color239   default  "(^|[[:space:][:punct:]])_[^_]+_([[:space:][:punct:]]|$)"
+color body  color239  default  "(^|[[:space:][:punct:]])_[^_]+_([[:space:][:punct:]]|$)"
 # /Italic/ span (Sometimes gets directory names)
-color body  color239   default  "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
+color body  color239  default  "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
 # ATX headers
-color body  color239   default  "^[[:space:]]{0,3}#+[[:space:]].*$"
+color body  color239  default  "^[[:space:]]{0,3}#+[[:space:]].*$"
 ## Highlight
 # `Code` span
-color body  color124     default  "(^|[[:space:][:punct:]])\`[^\`]+\`([[:space:][:punct:]]|$)"
+color body  color124  default  "(^|[[:space:][:punct:]])\`[^\`]+\`([[:space:][:punct:]]|$)"
 # Indented code block
-color body  color124     default  "^[[:space:]]{4,}.*$"
+color body  color124  default  "^[[:space:]]{4,}.*$"
 # Emoticons ;-P
 color body  black   color136   "[;:][-o]?[})>{(<|P]"
 # URLs
-color body  color64   default  "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+color body  color64 default  "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
 # Email addresses
-color body  color37   default  "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
+color body  color37 default  "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
 
 # PGP
-color body  color187  color124      "(BAD signature)"
-color body  color187  color124      "^gpg: BAD signature from.*"
-color body  color187  color33     "(Good signature)"
-color body  color187  color33     "^gpg: Good signature .*"
-color body  color33    default  "^gpg: "
+color body  color187  color124   "(BAD signature)"
+color body  color187  color124   "^gpg: BAD signature from.*"
+color body  color187  color33   "(Good signature)"
+color body  color187  color33   "^gpg: Good signature .*"
+color body  color33  default  "^gpg: "
 
 # highlight my name and other personally relevant strings
 color body  color136  default  "(joseph|holsten|jholsten|josephholsten|joseph anthony pasquale holsten)"
 
 ## Quotation blocks
-color quoted   color33     default
-color quoted1  color37     default
-color quoted2  color64    default
-color quoted3  color136   default
-color quoted4  color166   default
-color quoted5  color124      default
+color quoted   color33  default
+color quoted1  color37  default
+color quoted2  color64  default
+color quoted3  color136  default
+color quoted4  color166  default
+color quoted5  color124  default
 color quoted6  color125  default
-color quoted7  color61   default
+color quoted7  color61  default
 
 # vi: ft=muttrc
