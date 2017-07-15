@@ -17,13 +17,13 @@
 # base06 - Light Foreground (Not often used)
 # base07 - Light Background (Not often used)
 
-# base08 - Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
-# base09 - Integers, Boolean, Constants, XML Attributes, Markup Link Url
-# base0A - Classes, Markup Bold, Search Text Background
-# base0B - Strings, Inherited Class, Markup Code, Diff Inserted
-# base0C - Support, Regular Expressions, Escape Characters, Markup Quotes
-# base0D - Functions, Methods, Attribute IDs, Headings
-# base0E - Keywords, Storage, Selector, Markup Italic, Diff Changed
+# base08 - Index Item: Deleted.
+# base09 - Message: URL.
+# base0A - Search Text Background. Message: Bold.
+# base0B - Message: Code. Index Item: Tagged.
+# base0C - Message: Subject, Quotes. Index Item: Trusted.
+# base0D - Message: Headings.
+# base0E - Message: Italic, Underline. Index Item: Flagged.
 # base0F - Deprecated, Opening/Closing Embedded Language Tags e.g.
 
 ## Base
@@ -45,38 +45,36 @@ color error       {{base08}}  {{base00}}
 color message     {{base0d}}  {{base00}}  # informational messages
 color search      {{base03}}  {{base0a}}
 color status      {{base04}}  {{base02}}
-color indicator   {{base06}}  {{base0a}}   # inverse, brighter
+color indicator   {{base06}}  {{base02}}  # inverse, brighter
 
 
 # Message Index ----------------------------------------------------------------
 
 ## Weak
-color index  {{base05}}  {{base00}}  "~R"        # read messages
-color index  {{base05}}  {{base00}}  "~d >45d"   # older than 45 days
-color index  {{base05}}  {{base00}}  "~v~(!~N)"  # collapsed thread with no unread
-color index  {{base05}}  {{base00}}  "~Q"        # messages that have been replied to
+color index  {{base03}}  {{base00}}  "~R"        # read messages
+color index  {{base03}}  {{base00}}  "~d >45d"   # older than 45 days
+color index  {{base03}}  {{base00}}  "~v~(!~N)"  # collapsed thread with no unread
+color index  {{base03}}  {{base00}}  "~Q"        # messages that have been replied to
 
 ## Strong
-color index  {{base02}}  {{base00}}  "(~U|~N|~O)"     # unread, new, old messages
-color index  {{base02}}  {{base00}}  "~v~(~U|~N|~O)"  # collapsed thread with unread
+color index  {{base06}}  {{base00}}  "(~U|~N|~O)"     # unread, new, old messages
+color index  {{base06}}  {{base00}}  "~v~(~U|~N|~O)"  # collapsed thread with unread
 
 ## Highlight
 ### Trusted
 color index  {{base0c}}  {{base00}}  "~g"  # PGP signed messages
 color index  {{base0c}}  {{base00}}  "~G"  # PGP encrypted messages
-color index  {{base0c}}  {{base00}}  "~b \"{{name_re}}\" !~p !~P" # messages which mention my name in the body
-color index  {{base0c}}  {{base00}}  "~x \"{{mail_re}}\" !~p !~P" # messages which are in reference to my mails
 ### Odd
-color index  {{base0a}}  {{base00}}  "~E"  # past Expires: header date
-color index  {{base0a}}  {{base00}}  "~="  # duplicated
-color index  {{base0a}}  {{base00}}  "~S"  # marked by Supersedes: header
+color index  {{base08}}  {{base00}}  "~E"  # past Expires: header date
+color index  {{base08}}  {{base00}}  "~="  # duplicated
+color index  {{base08}}  {{base00}}  "~S"  # marked by Supersedes: header
 ### Flagged
-color index  {{base08}}  {{base00}}  "~F"       # flagged messages
-color index  {{base08}}  {{base00}}  "~v~(~F)"  # collapsed thread with flagged inside
+color index  {{base0e}}  {{base00}}  "~F"       # flagged messages
+color index  {{base0b}}  {{base00}}  "~v~(~F)"  # collapsed thread with flagged inside
 
 # Selection
-color index  {{base01}}  {{base0d}}   "~T"  # tagged messages
-color index  {{base06}}  {{base08}}   "~D"  # deleted messages
+color index  {{base0b}}  {{base01}}   "~T"  # tagged messages
+color index  {{base08}}  {{base01}}   "~D"  # deleted messages
 
 ### Message Headers ----------------------------------------------------
 
@@ -84,7 +82,7 @@ color index  {{base06}}  {{base08}}   "~D"  # deleted messages
 color hdrdefault  {{base05}}  {{base00}}
 color header      {{base05}}  {{base00}}  "^"
 # Strong
-color header      {{base03}}  {{base00}}  "^(From)"
+color header      {{base06}}  {{base00}}  "^(From)"
 # Highlight
 color header      {{base0d}}  {{base00}}  "^(Subject)"
 
@@ -92,7 +90,7 @@ color header      {{base0d}}  {{base00}}  "^(Subject)"
 # When possible, these regular expressions attempt to match http://spec.commonmark.org/
 ## Weak
 # ~~~ Horizontal rules ~~~
-color body  {{base05}}  {{base00}}  "([[:space:]]*[-+=#*~_]){3,}[[:space:]]*"
+color body  {{base03}}  {{base00}}  "([[:space:]]*[-+=#*~_]){3,}[[:space:]]*"
 ## Strong
 # *Bold* span
 color body  {{base0a}}  {{base00}}  "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
@@ -101,18 +99,18 @@ color body  {{base0e}}  {{base00}}  "(^|[[:space:][:punct:]])_[^_]+_([[:space:][
 # /Italic/ span (Sometimes gets directory names)
 color body  {{base0e}}  {{base00}}  "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
 # ATX headers
-color body  {{base02}}  {{base00}}  "^[[:space:]]{0,3}#+[[:space:]].*$"
+color body  {{base0d}}  {{base00}}  "^[[:space:]]{0,3}#+[[:space:]].*$"
 ## Highlight
 # `Code` span
 color body  {{base0b}}  {{base00}}  "(^|[[:space:][:punct:]])\`[^\`]+\`([[:space:][:punct:]]|$)"
 # Indented code block
 color body  {{base0b}}  {{base00}}  "^[[:space:]]{4,}.*$"
-# Emoticons ;-P
-color body  {{black}}   {{base0a}}   "[;:][-o]?[})>{(<|P]"
 # URLs
 color body  {{base09}} {{base00}}  "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
 # Email addresses
 color body  {{base09}} {{base00}}  "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
+# Emoticons ;-P
+color body  black   yellow   "[;:][-o]?[})>{(<|P]"
 
 # PGP
 color body  {{base06}}  {{base08}}   "(BAD signature)"
@@ -121,17 +119,22 @@ color body  {{base06}}  {{base0d}}   "(Good signature)"
 color body  {{base06}}  {{base0d}}   "^gpg: Good signature .*"
 color body  {{base0d}}  {{base00}}  "^gpg: "
 
-# highlight my name and other personally relevant strings
-color body  {{base0a}}  {{base00}}  "{{name_re}}"
 
 ## Quotation blocks
-color quoted   {{base0d}}  {{base00}}
-color quoted1  {{base0c}}  {{base00}}
-color quoted2  {{base0b}}  {{base00}}
-color quoted3  {{base0a}}  {{base00}}
-color quoted4  {{base09}}  {{base00}}
-color quoted5  {{base08}}  {{base00}}
-color quoted6  {{base0f}}  {{base00}}
-color quoted7  {{base0e}}  {{base00}}
+color quoted   {{base0c}}  {{base00}}
+color quoted1  {{base0b}}  {{base00}}
+color quoted2  {{base0a}}  {{base00}}
+color quoted3  {{base09}}  {{base00}}
+color quoted4  {{base08}}  {{base00}}
+color quoted5  {{base0f}}  {{base00}}
+color quoted6  {{base0e}}  {{base00}}
+color quoted7  {{base0d}}  {{base00}}
+
+## Highlight
+### Trusted
+color index  {{base0c}}  {{base00}}  "~b \"{{name_re}}\" !~p !~P" # messages which mention my name in the body
+color index  {{base0c}}  {{base00}}  "~x \"{{mail_re}}\" !~p !~P" # messages which are in reference to my mails
+# highlight my name and other personally relevant strings
+color body  {{base0a}}  {{base00}}  "{{name_re}}"
 
 # vi: ft=muttrc
