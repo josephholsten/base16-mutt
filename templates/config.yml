@@ -1,0 +1,3 @@
+default:
+    extension: .muttrc
+    output: headers
