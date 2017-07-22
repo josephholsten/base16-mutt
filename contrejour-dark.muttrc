@@ -129,10 +129,4 @@ color quoted5  color17  color00
 color quoted6  color05  color00
 color quoted7  color04  color00
 
-## Highlight
-### Trusted
-color index  color06  color00  "~b \"(joseph|holsten|jholsten|josephholsten|joseph anthony pasquale holsten)\" !~p !~P" # messages which mention my name in the body
-color index  color06  color00  "~x \"josephholsten.com\" !~p !~P" # messages which are in reference to my mails
-# highlight my name and other personally relevant strings
-color body  color03  color00  "(joseph|holsten|jholsten|josephholsten|joseph anthony pasquale holsten)"
 # vi: ft=muttrc
