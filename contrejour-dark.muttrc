@@ -6,25 +6,24 @@
 # §3.7 Using color and mono video attributes <http://www.mutt.org/doc/manual/#color>
 
 # https://www.neomutt.org/guide/configuration.html#color
-#
-# base00 - Default Background
-# base01 - Lighter Background (Used for status bars)
-# base02 - Selection Background
-# base03 - Comments, Invisibles, Line Highlighting
+# base00 : color00 - Default Background
+# base01 : color18 - Lighter Background (Used for status bars)
+# base02 : color19 - Selection Background
+# base03 : color08 - Comments, Invisibles, Line Highlighting
 
-# base04 - Dark Foreground (Used for status bars)
-# base05 - Default Foreground, Caret, Delimiters, Operators
-# base06 - Light Foreground (Not often used)
-# base07 - Light Background (Not often used)
+# base04 : color20 - Dark Foreground (Used for status bars)
+# base05 : color07 - Default Foreground, Caret, Delimiters, Operators
+# base06 : color21 - Light Foreground (Not often used)
+# base07 : color15 - Light Background (Not often used)
 
-# base08 - Index Item: Deleted.
-# base09 - Message: URL.
-# base0A - Search Text Background. Message: Bold.
-# base0B - Message: Code. Index Item: Tagged.
-# base0C - Message: Subject, Quotes. Index Item: Trusted.
-# base0D - Message: Headings.
-# base0E - Message: Italic, Underline. Index Item: Flagged.
-# base0F - Deprecated, Opening/Closing Embedded Language Tags e.g.
+# base08 : color01 - Index Item: Deleted.
+# base09 : color16 - Message: URL.
+# base0A : color03 - Search Text Background. Message: Bold.
+# base0B : color02 - Message: Code. Index Item: Tagged.
+# base0C : color06 - Message: Subject, Quotes. Index Item: Trusted.
+# base0D : color04 - Message: Headings.
+# base0E : color05 - Message: Italic, Underline. Index Item: Flagged.
+# base0F : color17 - Deprecated, Opening/Closing Embedded Language Tags e.g.
 
 ## Base
 color normal      color07  color00 # softer, bold
@@ -136,5 +135,4 @@ color index  color06  color00  "~b \"(joseph|holsten|jholsten|josephholsten|jose
 color index  color06  color00  "~x \"josephholsten.com\" !~p !~P" # messages which are in reference to my mails
 # highlight my name and other personally relevant strings
 color body  color03  color00  "(joseph|holsten|jholsten|josephholsten|joseph anthony pasquale holsten)"
-
 # vi: ft=muttrc
