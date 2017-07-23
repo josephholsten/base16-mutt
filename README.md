@@ -1,4 +1,4 @@
-# Contrejour Color Scheme for Mutt
+# Base16 Color Scheme for Mutt
 
 Developed by Joseph Holsten <joseph@josephholsten.com>
 
@@ -19,16 +19,17 @@ origins are hardly recognisable.
 
     base16-solarized-light
 
-3.  Move the `mutt-colors-contrejour` repo into the same location as
+3.  Move the `base16-mutt` repo into the same location as
     your `muttrc`. Alternately, you can copy just the color scheme file.
 
 4.  Source the color scheme in your `muttrc`.
 
-    source $MAILCONF/mutt-colors-contrejour/base16.muttrc
+    source $MAILCONF/base16-mutt/base16.muttrc
 
 ## License
 
-Copyright (c) 2015 Joseph Holsten Copyright (c) 2011 Ethan Schoonover
+Copyright (c) 2015-2017 Joseph Holsten
+Copyright (c) 2011 Ethan Schoonover
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the
