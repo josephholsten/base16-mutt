@@ -1,4 +1,4 @@
-# mutt-contrejour: base16-solarized for mutt
+# base16-mutt: base16-shell support for mutt
 #
 # These depend on mutt compiled with s-lang, not ncurses. Check by running `mutt -v`
 # Details this configuration may be found in the mutt manual:
