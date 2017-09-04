@@ -2,8 +2,8 @@
 #
 # These depend on mutt compiled with s-lang, not ncurses. Check by running `mutt -v`
 # Details this configuration may be found in the mutt manual:
-# §4.2 Patterns <http://www.mutt.org/doc/manual/manual-4.html#ss4.2>
-# §3.7 Using color and mono video attributes <http://www.mutt.org/doc/manual/#color>
+# §3 Patterns <http://www.mutt.org/doc/manual/#patterns>
+# §9 Using color and mono video attributes <http://www.mutt.org/doc/manual/#color>
 
 # https://www.neomutt.org/guide/configuration.html#color
 # base00 : color00 - Default Background
